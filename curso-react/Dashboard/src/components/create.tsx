@@ -8,7 +8,7 @@ export default function Create() {
     const handleSubmit = async (event: any) => {
         event.preventDefault();
         try {
-            const response = await api.post('/api/cadastros/', {
+            const response = await api.post('/cadastros/', {
                 email: email,
                 nome: name,
                 senha: password

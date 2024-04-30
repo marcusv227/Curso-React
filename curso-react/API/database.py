@@ -1,8 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from config import DBConfig
 
-SQLALCHEMY_DATABASE_URL = "mysql://root:123456@127.0.0.1:3307/teste"
+db_config = DBConfig()
+
+SQLALCHEMY_DATABASE_URL = f"mysql://{db_config.user}:{db_config.password}@{db_config.host}:{db_config.port}/{db_config.database}"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
